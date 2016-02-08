@@ -145,7 +145,7 @@ namespace CoffeeJelly.Byfly.ByflyView
         {
             set
             {
-                if (value !=null && value.GetType() == typeof(bool) && (bool)value)
+                if (value != null && value.GetType() == typeof(bool) && (bool)value)
                     ResetError();
             }
         }

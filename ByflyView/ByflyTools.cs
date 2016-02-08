@@ -17,6 +17,7 @@ namespace CoffeeJelly.Byfly.ByflyView
     internal static class ByflyTools
     {
         internal delegate bool FirstDelegate();
+        internal delegate void ParserCallbackDelegate(ByflyClient bfc);
 
         /// <summary>
         /// Считает время ожидания ответа на запрос к http серверу

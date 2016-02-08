@@ -111,7 +111,6 @@ namespace CoffeeJelly.Byfly.ByflyView
             return collection;
         }
 
-
         private void ParserCallback(ByflyClient client)
         {
             client.GetAccountData();
@@ -211,11 +210,10 @@ namespace CoffeeJelly.Byfly.ByflyView
             }
         }
 
-        private delegate void parserCallbackDelegate(ByflyClient bfc);
 
         private void UpdateAllProfiles()
         {
-            parserCallbackDelegate ucd = ParserCallback;
+            Tools.ParserCallbackDelegate ucd = ParserCallback;
             foreach (var item in ByFlyCollection)
             {
                 //new Thread(() => parserCallback(item)).Start();

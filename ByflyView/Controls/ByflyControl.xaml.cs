@@ -142,7 +142,7 @@ namespace CoffeeJelly.Byfly.ByflyView.Controls
             //if (ControlState == State.Error)
             //    ControlState = State.Login;
             errorBorder.Tag = true;
-            errorBorder.Tag = false;
+            //errorBorder.Tag = false;
         }
 
         private void passwordBox_KeyUp(object sender, KeyEventArgs e)
@@ -151,7 +151,8 @@ namespace CoffeeJelly.Byfly.ByflyView.Controls
             {
                 //Get our ByflyClient
                 var bfc = GetByflyClient();
-                bfc.GetAccountData();
+                CoffeeJelly.Byfly.ByflyView.ByflyTools.ParserCallbackDelegate pcd = new ByflyTools.ParserCallbackDelegate((b) => b.GetAccountData());
+                pcd.BeginInvoke(bfc, null, null);
             }
 
         }
