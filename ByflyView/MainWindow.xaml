@@ -1,0 +1,70 @@
+﻿<Controls:MetroWindow x:Class="CoffeeJelly.Byfly.ByflyView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:conv="clr-namespace:CoffeeJelly.Byfly.BFlib.Converters;assembly=BFlib"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:byfly="clr-namespace:CoffeeJelly.Byfly.ByflyView.Controls"
+        Name="window" ShowTitleBar="False" ShowIconOnTitleBar="False"
+        Title="Byfly view" HorizontalAlignment="Stretch" SizeToContent="WidthAndHeight" ResizeMode="NoResize" 
+                      WindowStyle="None"  Background="Transparent" AllowsTransparency="True">
+    <Window.Resources>
+        <conv:SicButtonsMarginConverter x:Key="sicConverter"/>
+    </Window.Resources>
+    <!--xmlns:ff="clr-namespace:FunctionalFun.UI"-->
+    <Grid HorizontalAlignment="Stretch"  Margin="0,20,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="mainListBox" Grid.Row="2" HorizontalAlignment="Stretch"  VerticalAlignment="Top" BorderBrush="Transparent">
+            <ListView.Resources>
+                <Style TargetType="Border">
+                </Style>
+            </ListView.Resources>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="IsSelected" Value="{Binding Content.IsSelected, Mode=TwoWay, RelativeSource={RelativeSource Self}}"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <ContentPresenter/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Resources>
+                        <Style TargetType="Border">
+                        </Style>
+                    </Style.Resources>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="2" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate x:Name="data">
+                    <byfly:ByflyControl />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid Grid.Row="1" Margin="{Binding ElementName=mainListBox, Path=ActualWidth, Converter={StaticResource sicConverter}}" Background="Transparent">
+            <Button x:Name="addProfile" ToolTip="Добавить аккаунт" HorizontalAlignment="Left"  Margin="4,0,0,0"
+                Visibility="Visible"  
+                VerticalAlignment="Top" Width="20" Style="{DynamicResource MetroCircleButtonStyle}" Height="20" Grid.Column="1">
+            </Button>
+            <Button x:Name="configButt" ToolTip="Платежные настройки" HorizontalAlignment="Left" Margin="16,0,0,0" 
+                Visibility="Visible"
+                VerticalAlignment="Top" Width="20" Style="{DynamicResource MetroCircleButtonStyle}" Height="20" Grid.Column="1">
+            </Button>
+            <Button x:Name="collapseButt" ToolTip="Выход" HorizontalAlignment="Left" Margin="28,0,0,0" 
+                Visibility="Visible"  
+                VerticalAlignment="Top" Width="20" Style="{DynamicResource MetroCircleButtonStyle}" Height="20" Grid.Column="1">
+            </Button>
+
+
+        </Grid>
+    </Grid>
+</Controls:MetroWindow>
+
+<!--Margin="{Binding ElementName=mainListBox, Path=ActualWidth, Converter={StaticResource marginConverter}}"-->

@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByflyView", "ByflyView\ByflyView.csproj", "{0A659B28-1126-4826-BC31-82A924FD19A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BFlib", "BFlib\BFlib.csproj", "{6F2CE848-109A-4FEE-9155-A427D7652094}"
+EndProject
+Global
+
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A659B28-1126-4826-BC31-82A924FD19A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A659B28-1126-4826-BC31-82A924FD19A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A659B28-1126-4826-BC31-82A924FD19A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A659B28-1126-4826-BC31-82A924FD19A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F2CE848-109A-4FEE-9155-A427D7652094}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F2CE848-109A-4FEE-9155-A427D7652094}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F2CE848-109A-4FEE-9155-A427D7652094}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F2CE848-109A-4FEE-9155-A427D7652094}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

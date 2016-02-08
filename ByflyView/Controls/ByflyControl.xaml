@@ -1,0 +1,214 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"
+             xmlns:bflib="clr-namespace:CoffeeJelly.Byfly.BFlib;assembly=BFlib"
+             xmlns:state="clr-namespace:CoffeeJelly.Byfly.ByflyView.Controls"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" 
+             xmlns:conv="clr-namespace:CoffeeJelly.Byfly.BFlib.Converters;assembly=BFlib"
+             x:Class="CoffeeJelly.Byfly.ByflyView.Controls.ByflyControl" 
+             mc:Ignorable="d" x:Name="bfc"
+             d:DesignHeight="109" d:DesignWidth="144">
+    <UserControl.Resources>
+        <conv:StringToUpperConverter x:Key="toUpper"/>
+        <Storyboard x:Key="LoggedStoryboard">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="loginTb">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-146"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-87.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="11"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="passwordBox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-146"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-146.129"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-87.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="-25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ellipse">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="balanceLabel">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="rubLabel">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.7" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="balanceLabel">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.7" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rubLabel">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.7" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="LoginStoryboard">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="loginTb">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-49"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-146"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="passwordBox">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-49"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-146"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="ErrorStoryboard">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="loginTb">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-146"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-87.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="11"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="passwordBox">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-146"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-146.129"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-87.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="-25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="errorBorder">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="ErrorToLoginStoryboard">
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="loginTb">
+        		<SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="11"/>
+        		<SplineDoubleKeyFrame KeyTime="0:0:0.2" Value="-1"/>
+        		<SplineDoubleKeyFrame KeyTime="0:0:0.3" Value="-25"/>
+        		<SplineDoubleKeyFrame KeyTime="0:0:0.5" Value="-87.5"/>
+        		<SplineDoubleKeyFrame KeyTime="0:0:0.7" Value="-146"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="passwordBox">
+        		<SplineDoubleKeyFrame KeyTime="0" Value="1"/>
+        		<SplineDoubleKeyFrame KeyTime="0:0:0.1" Value="-25"/>
+        		<SplineDoubleKeyFrame KeyTime="0:0:0.3" Value="-87.5"/>
+        		<SplineDoubleKeyFrame KeyTime="0:0:0.5" Value="-146.129"/>
+        		<SplineDoubleKeyFrame KeyTime="0:0:0.7" Value="-146"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="errorBorder">
+        		<SplineDoubleKeyFrame KeyTime="0" Value="1"/>
+        		<SplineDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+        	</DoubleAnimationUsingKeyFrames>
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="errorTbl">
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="0"/>
+        	</DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+	<i:Interaction.Triggers>
+        <i:EventTrigger EventName="state:ByflyControl.ReadyToBlockErrorStateEvent">
+			<i:Interaction.Behaviors>
+				<ei:ConditionBehavior>
+					<ei:ConditionalExpression>
+						<ei:ComparisonCondition LeftOperand="ControlState" RightOperand="State.Error"/>
+					</ei:ConditionalExpression>
+				</ei:ConditionBehavior>
+			</i:Interaction.Behaviors>
+			<ei:ControlStoryboardAction x:Name="ErrorToLoginStoryboardAction"/>
+		</i:EventTrigger>
+	</i:Interaction.Triggers>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="state:ByflyControl.ReadyToLoginState">
+            <BeginStoryboard x:Name="LoginStoryboard_BeginStoryboard" Storyboard="{StaticResource LoginStoryboard}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard x:Name="LoginStoryboard_BeginStoryboard1" Storyboard="{StaticResource LoginStoryboard}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="state:ByflyControl.ReadyToLoggedState">
+            <BeginStoryboard x:Name="LoggetStoryboard_BeginStoryboard1" Storyboard="{StaticResource LoggedStoryboard}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="state:ByflyControl.ReadyToErrorState">
+            <BeginStoryboard x:Name="ErrorStoryboard_BeginStoryboard" Storyboard="{StaticResource ErrorStoryboard}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
+
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="144" Height="109">
+            <Grid x:Name="mainlistBoxGrid" HorizontalAlignment="Stretch" Margin="0,0,0,0" ClipToBounds="True" >
+                <Ellipse x:Name="ellipse" Fill="#FFD4FBFB" HorizontalAlignment="Left" Height="100" Margin="22,4,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden" />
+                <Label x:Name="balanceLabel"  Content="{c:Binding Mode=OneWay, Path=ActualBalance, UpdateSourceTrigger=PropertyChanged}" 
+					FontSize="20"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+					HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="40" Visibility="Hidden" RenderTransformOrigin="0.5,0.5" Margin="29,32,30,0" Background="#FFD4FBFB" />
+                <Label x:Name="rubLabel" Content="рублей" Margin="47,61,42,20" Background="#FFD4FBFB" Visibility="Hidden"/>
+                <TextBox  x:Name="loginTb" Text="{c:Binding Mode=TwoWay, Path=Login, UpdateSourceTrigger=PropertyChanged}" 
+					Controls:TextBoxHelper.Watermark="Логин"
+					Controls:TextBoxHelper.ClearTextButton="False"
+					TextChanged="loginTb_TextChanged" HorizontalContentAlignment="Center"
+					VerticalContentAlignment="Center" FontSize="18" HorizontalAlignment="Left" 
+					TextWrapping="NoWrap" VerticalAlignment="Top" Width="140" MaxLength="13" Height="33" 
+					LostFocus="loginTb_LostFocus" Margin="148,15,-144,0" RenderTransformOrigin="0.5,0.5">
+                    <TextBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBox.RenderTransform>
+                </TextBox>
+                <PasswordBox x:Name="passwordBox" bflib:PasswordBoxAssistant.BindPassword="True" 
+					bflib:PasswordBoxAssistant.BoundPassword="{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  
+					Controls:TextBoxHelper.Watermark="Пароль"
+					Controls:TextBoxHelper.ClearTextButton="False" FontSize="18"
+					HorizontalAlignment="Left" Margin="148,57,-144,19" Width="140" MaxLength="18" Height="33" 
+					HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5"
+                             KeyUp="passwordBox_KeyUp">
+                    <PasswordBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </PasswordBox.RenderTransform>
+                </PasswordBox>
+
+                <!--<Image x:Name="captchaImage" Grid.Column="2" Source="{Binding Path=Captcha}" HorizontalAlignment="Left" Height="98" VerticalAlignment="Top" Width="100" Margin="0,0,-1,0"/>-->
+
+                <!--<Label x:Name="abonentLb" Content="{c:Binding Path=Abonent, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" 
+                                       HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" 
+                                       Width="140" HorizontalContentAlignment="Center" FontSize="18"
+                                       VerticalContentAlignment="Center"/>-->
+
+
+                <!--<Label x:Name="balanceLabel"  Content="{c:Binding Mode=OneWay, Path=ActualBalance, UpdateSourceTrigger=PropertyChanged}" 
+					FontSize="24"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+					HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="51" Visibility="Visible" RenderTransformOrigin="0.5,0.5" />
+                <Label x:Name="statusLabal" Content ="{c:Binding Mode=OneWay, Path=Status, UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Center" 
+					VerticalContentAlignment="Top" Margin="0,51,0,33" FontSize="18" Visibility="Visible" RenderTransformOrigin="0.5,0.5"/>
+                <Label x:Name="tariffLabel" Content ="{c:Binding Mode=OneWay, Path=TariffPlan, UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Center" 
+					VerticalContentAlignment="Top" Margin="-1,76,1,8" FontSize="18" Visibility="Visible" RenderTransformOrigin="0.5,0.5"/>-->
+                <StackPanel  Width="98" Margin="24,43,22,5" VerticalAlignment="Center" HorizontalAlignment="Center" Height="61">
+                    <Controls:ProgressRing x:Name="progressRing"   Height="16" Margin="0,0,0,16" IsEnabled="True" FontSize="18"
+						IsActive="{c:Binding Mode=OneWay, Path=IsIndeterminate, UpdateSourceTrigger=PropertyChanged}" IsVisibleChanged="progressRing_IsVisibleChanged"  
+						Visibility="{c:Binding IsIndeterminate, FalseToVisibility=Hidden, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+                <Border x:Name="errorBorder" BorderBrush="Black" Visibility="Visible" Opacity="0" Margin="10" MouseLeftButtonUp="errorBorder_MouseLeftButtonUp" Tag="{Binding Mode=TwoWay, Path=ErrorReset, UpdateSourceTrigger=PropertyChanged}">
+                    <TextBlock x:Name="errorTbl" Text="{Binding Mode=OneWay, Path=ErrorMessage, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource toUpper}}" 
+						HorizontalAlignment="Center" VerticalAlignment="Center"
+						FontSize="14" TextWrapping="Wrap" Foreground="Black" FontFamily="Segoe UI"/>
+                </Border>
+                <Border x:Name="_blockTimeBorder" BorderBrush="Black" Visibility="Hidden" Opacity="0" Margin="10" >
+                    <Label x:Name="_blockTimeLabel" Content="{Binding Mode=OneWay, Path=BlockTime, UpdateSourceTrigger=PropertyChanged}" 
+						HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center"
+						FontSize="24" Foreground="Black" FontFamily="Segoe UI" Height="89" Width="124" />
+                </Border>
+            </Grid>
+        </Border>
+
+    </Grid>
+</UserControl>

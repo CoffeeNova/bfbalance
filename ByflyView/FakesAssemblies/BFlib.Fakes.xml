@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BFlib.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:CoffeeJelly.Byfly.BFlib.Fakes.ShimPasswordBoxAssistant">
+            <summary>Shim type of CoffeeJelly.Byfly.BFlib.PasswordBoxAssistant</summary>
+        </member>
+        <member name="M:CoffeeJelly.Byfly.BFlib.Fakes.ShimPasswordBoxAssistant.#ctor">
+            <summary>Initializes a new shim instance</summary>
+        </member>
+        <member name="M:CoffeeJelly.Byfly.BFlib.Fakes.ShimPasswordBoxAssistant.BehaveAsCurrent">
+            <summary>Assigns the &apos;Current&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="M:CoffeeJelly.Byfly.BFlib.Fakes.ShimPasswordBoxAssistant.BehaveAsNotImplemented">
+            <summary>Assigns the &apos;NotImplemented&apos; behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:CoffeeJelly.Byfly.BFlib.Fakes.ShimPasswordBoxAssistant.Behavior">
+            <summary>Assigns the behavior for all methods of the shimmed type</summary>
+        </member>
+        <member name="P:CoffeeJelly.Byfly.BFlib.Fakes.ShimPasswordBoxAssistant.GetBindPasswordDependencyObject">
+            <summary>Sets the shim of PasswordBoxAssistant.GetBindPassword(DependencyObject dp)</summary>
+        </member>
+        <member name="P:CoffeeJelly.Byfly.BFlib.Fakes.ShimPasswordBoxAssistant.GetBoundPasswordDependencyObject">
+            <summary>Sets the shim of PasswordBoxAssistant.GetBoundPassword(DependencyObject dp)</summary>
+        </member>
+        <member name="P:CoffeeJelly.Byfly.BFlib.Fakes.ShimPasswordBoxAssistant.GetUpdatingPasswordDependencyObject">
+            <summary>Sets the shim of PasswordBoxAssistant.GetUpdatingPassword(DependencyObject dp)</summary>
+        </member>
+        <member name="P:CoffeeJelly.Byfly.BFlib.Fakes.ShimPasswordBoxAssistant.HandlePasswordChangedObjectRoutedEventArgs">
+            <summary>Sets the shim of PasswordBoxAssistant.HandlePasswordChanged(Object sender, RoutedEventArgs e)</summary>
+        </member>
+        <member name="P:CoffeeJelly.Byfly.BFlib.Fakes.ShimPasswordBoxAssistant.OnBindPasswordChangedDependencyObjectDependencyPropertyChangedEventArgs">
+            <summary>Sets the shim of PasswordBoxAssistant.OnBindPasswordChanged(DependencyObject dp, DependencyPropertyChangedEventArgs e)</summary>
+        </member>
+        <member name="P:CoffeeJelly.Byfly.BFlib.Fakes.ShimPasswordBoxAssistant.OnBoundPasswordChangedDependencyObjectDependencyPropertyChangedEventArgs">
+            <summary>Sets the shim of PasswordBoxAssistant.OnBoundPasswordChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)</summary>
+        </member>
+        <member name="P:CoffeeJelly.Byfly.BFlib.Fakes.ShimPasswordBoxAssistant.SetBindPasswordDependencyObjectBoolean">
+            <summary>Sets the shim of PasswordBoxAssistant.SetBindPassword(DependencyObject dp, Boolean value)</summary>
+        </member>
+        <member name="P:CoffeeJelly.Byfly.BFlib.Fakes.ShimPasswordBoxAssistant.SetBoundPasswordDependencyObjectString">
+            <summary>Sets the shim of PasswordBoxAssistant.SetBoundPassword(DependencyObject dp, String value)</summary>
+        </member>
+        <member name="P:CoffeeJelly.Byfly.BFlib.Fakes.ShimPasswordBoxAssistant.SetUpdatingPasswordDependencyObjectBoolean">
+            <summary>Sets the shim of PasswordBoxAssistant.SetUpdatingPassword(DependencyObject dp, Boolean value)</summary>
+        </member>
+        <member name="P:CoffeeJelly.Byfly.BFlib.Fakes.ShimPasswordBoxAssistant.StaticConstructor">
+            <summary>Sets the shim of PasswordBoxAssistant.PasswordBoxAssistant()</summary>
+        </member>
+    </members>
+</doc>

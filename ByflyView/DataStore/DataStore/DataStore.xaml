@@ -1,0 +1,6 @@
+﻿<!--
+      *********    НЕ ИЗМЕНЯЙТЕ ЭТОТ ФАЙЛ     *********
+      Этот файл обновляется средством разработки. Внесение
+      изменений в этот файл может привести к ошибкам.
+-->
+<DataStore:DataStore xmlns:DataStore="clr-namespace:Expression.Blend.DataStore.DataStore"/>
