@@ -141,9 +141,13 @@ namespace CoffeeJelly.Byfly.ByflyView
             set { _isIndeterminate = value; NotifyPropertyChanged(); }
         }
 
-        public bool ErrorReset
+        public object ErrorReset
         {
-            set { if (value) ResetError(); }
+            set
+            {
+                if (value !=null && value.GetType() == typeof(bool) && (bool)value)
+                    ResetError();
+            }
         }
         /// <summary>
         /// Возвращает значение, указывающее является ли клиент в блокировке из-за частых обращений к серверу

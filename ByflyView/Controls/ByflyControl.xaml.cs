@@ -86,6 +86,7 @@ namespace CoffeeJelly.Byfly.ByflyView.Controls
         public ByflyControl()
         {
             InitializeComponent();
+
             dpdBalanceLabel.AddValueChanged(balanceLabel, (object a, EventArgs b) =>
             {
                 if (!string.IsNullOrEmpty((string)(a as Label).Content))
@@ -146,8 +147,26 @@ namespace CoffeeJelly.Byfly.ByflyView.Controls
 
         private void passwordBox_KeyUp(object sender, KeyEventArgs e)
         {
-            //if(e.Key == Key.Enter)
-            //    passwordBox.Password= 
+            if(e.Key == Key.Enter)
+            {
+                //Get our ByflyClient
+                var bfc = GetByflyClient();
+                bfc.GetAccountData();
+            }
+
+        }
+
+        private ByflyClient GetByflyClient()
+        {
+            var bfControlsDaddy = VisualTreeHelper.GetParent(this);
+            var bfControlsGrandDaddy = VisualTreeHelper.GetParent(bfControlsDaddy) as ListViewItem;
+            var bfClient = bfControlsGrandDaddy.Content as ByflyClient;
+            return bfClient;
+        }
+        private void loginTb_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                passwordBox.Focus();
         }
 
 
