@@ -51,13 +51,12 @@ namespace CoffeeJelly.Byfly.ByflyView
         /// <summary>
         /// Пароль
         /// </summary>
-        public SecureString Password
+        public string Password
         {
             get { return _password; }
             set
             {
                 _password = value;
-
                 NotifyPropertyChanged();
             }
         }
@@ -180,7 +179,7 @@ namespace CoffeeJelly.Byfly.ByflyView
         private string _actualBalance = "";
         private string _errorMessage = "";
         private string _login = "";
-        private SecureString _password = new SecureString();
+        private string _password = "";
         private CookieDictionary _cookies = new CookieDictionary{
                     {"PHPSESSID", ""},
                     {"__utma", "254710043.950298654.1443082145.1443083140.1447303912.3"},
@@ -206,7 +205,7 @@ namespace CoffeeJelly.Byfly.ByflyView
 
 
         #endregion
-        public ByflyClient(string login, SecureString password)
+        public ByflyClient(string login, string password)
         {
             Login = login;
             Password = password;
@@ -294,12 +293,12 @@ namespace CoffeeJelly.Byfly.ByflyView
         /// <param name="login">Номер аккаунта (Лицевой номер)</param>
         /// <param name="password">Пароль от аккаунта</param>
         /// <returns></returns>
-        private string Authentication(string login, SecureString password)
+        private string Authentication(string login, string password)
         {
             RequestParams rqp = new RequestParams();
             rqp["redirect"] = @"/main.html";
             rqp["oper_user"] = login;
-            rqp["passwd"] = password.ToNormalString();
+            rqp["passwd"] = password;
 
             return GetHtmlContent(rqp);
         }
@@ -500,9 +499,9 @@ namespace CoffeeJelly.Byfly.ByflyView
         /// </summary>
         /// <param name="password"></param>
         /// <returns></returns>
-        private bool PasswordVerification(SecureString secure)
+        private bool PasswordVerification(string password)
         {
-            string password = new System.Net.NetworkCredential(string.Empty, secure).Password;
+            //string password = new System.Net.NetworkCredential(string.Empty, password).Password;
             Console.WriteLine(password);
             if (String.IsNullOrWhiteSpace(password))
                 return false;

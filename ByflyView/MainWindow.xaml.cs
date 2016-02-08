@@ -74,7 +74,7 @@ namespace CoffeeJelly.Byfly.ByflyView
             // Console.WriteLine(requestTime);
             ByFlyCollection = GetSavedCollection();
             if (ByFlyCollection.Count == 0)
-                ByFlyCollection.Add(new ByflyClient("", new SecureString()));
+                ByFlyCollection.Add(new ByflyClient("", ""));
             mainListBox.ItemsSource = ByFlyCollection;
 
             UpdateAllProfiles();
@@ -105,7 +105,7 @@ namespace CoffeeJelly.Byfly.ByflyView
                     }
                 }
 
-                collection.Add(new ByflyClient(login, password.ToSecureString()));
+                collection.Add(new ByflyClient(login, password));
             }
 
             return collection;

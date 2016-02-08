@@ -9,6 +9,7 @@ using System.Windows.Controls;
 
 namespace CoffeeJelly.Byfly.BFlib
 {
+    //https://habrahabr.ru/post/169231/
     public class PasswordBehavior : Behavior<PasswordBox>
     {
         public static readonly DependencyProperty PasswordProperty =
