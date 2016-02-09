@@ -56,11 +56,7 @@ namespace CoffeeJelly.Byfly.BFlib.Converters
             return methodInfo.Invoke(value, new object[0]);
         }
     }
-    //public object[] ConvertBack(object value, System.Type[] targetType, object parameter, System.Globalization.CultureInfo culture)
-    //{
-    //    return null;
-    //}
-
+  
     
 
     

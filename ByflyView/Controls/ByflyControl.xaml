@@ -13,7 +13,7 @@
              xmlns:bfview="clr-namespace:CoffeeJelly.Byfly.ByflyView"
              x:Class="CoffeeJelly.Byfly.ByflyView.Controls.ByflyControl" 
              mc:Ignorable="d" x:Name="bfc"
-             d:DesignHeight="109" d:DesignWidth="144">
+             d:DesignHeight="109" d:DesignWidth="144" Loaded="bfc_Loaded" ToolTipOpening="bfc_ToolTipOpening" ToolTipService.ToolTip="" ToolTipService.IsEnabled="True">
     <UserControl.Resources>
         <ObjectDataProvider x:Key="ByflyClientProvider" ObjectType="{x:Type bfview:ByflyClient}" MethodName="GetAccountData"/>
         <conv:StringToUpperConverter x:Key="toUpper"/>
@@ -137,8 +137,8 @@
             <BeginStoryboard x:Name="ErrorStoryboard_BeginStoryboard" Storyboard="{StaticResource ErrorStoryboard}"/>
         </EventTrigger>
     </UserControl.Triggers>
-
     <Grid>
+        
         <Border BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="144" Height="109">
             <Grid x:Name="mainlistBoxGrid" HorizontalAlignment="Stretch" Margin="0,0,0,0" ClipToBounds="True" >
                 <Ellipse x:Name="ellipse" Fill="#FFD4FBFB" HorizontalAlignment="Left" Height="100" Margin="22,4,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden" />
@@ -149,7 +149,7 @@
                 <TextBox  x:Name="loginTb" Text="{c:Binding Mode=TwoWay, Path=Login, UpdateSourceTrigger=PropertyChanged}" 
 					Controls:TextBoxHelper.Watermark="Логин"
 					Controls:TextBoxHelper.ClearTextButton="False"
-                          KeyUp="loginTb_KeyUp"
+                    KeyUp="loginTb_KeyUp" IsEnabled="{c:Binding Path=!IsBlocked, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
 					TextChanged="loginTb_TextChanged" HorizontalContentAlignment="Center"
 					VerticalContentAlignment="Center" FontSize="18" HorizontalAlignment="Left" 
 					TextWrapping="NoWrap" VerticalAlignment="Top" Width="140" MaxLength="13" Height="33" 
@@ -169,7 +169,7 @@
 					Controls:TextBoxHelper.ClearTextButton="False" FontSize="18"
 					HorizontalAlignment="Left" Margin="148,57,-144,19" Width="140" MaxLength="18" Height="33" 
 					HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5"
-                             KeyUp="passwordBox_KeyUp">
+                    KeyUp="passwordBox_KeyUp" IsEnabled="{c:Binding Path=!IsBlocked, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
                     <PasswordBox.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -205,11 +205,11 @@
 						HorizontalAlignment="Center" VerticalAlignment="Center"
 						FontSize="14" TextWrapping="Wrap" Foreground="Black" FontFamily="Segoe UI"/>
                 </Border>
-                <Border x:Name="_blockTimeBorder" BorderBrush="Black" Visibility="Hidden" Opacity="0" Margin="10" >
+                <!--<Border x:Name="_blockTimeBorder" BorderBrush="Black" Visibility="Hidden" Opacity="0" Margin="10" >
                     <Label x:Name="_blockTimeLabel" Content="{Binding Mode=OneWay, Path=BlockTime, UpdateSourceTrigger=PropertyChanged}" 
 						HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center"
 						FontSize="24" Foreground="Black" FontFamily="Segoe UI" Height="89" Width="124" />
-                </Border>
+                </Border>-->
             </Grid>
         </Border>
 
