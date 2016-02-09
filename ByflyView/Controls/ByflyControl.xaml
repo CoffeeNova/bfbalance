@@ -149,7 +149,7 @@
                 <TextBox  x:Name="loginTb" Text="{c:Binding Mode=TwoWay, Path=Login, UpdateSourceTrigger=PropertyChanged}" 
 					Controls:TextBoxHelper.Watermark="Логин"
 					Controls:TextBoxHelper.ClearTextButton="False"
-                    KeyUp="loginTb_KeyUp" IsEnabled="{c:Binding Path=!IsBlocked, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                    KeyUp="loginTb_KeyUp" 
 					TextChanged="loginTb_TextChanged" HorizontalContentAlignment="Center"
 					VerticalContentAlignment="Center" FontSize="18" HorizontalAlignment="Left" 
 					TextWrapping="NoWrap" VerticalAlignment="Top" Width="140" MaxLength="13" Height="33" 
@@ -169,7 +169,7 @@
 					Controls:TextBoxHelper.ClearTextButton="False" FontSize="18"
 					HorizontalAlignment="Left" Margin="148,57,-144,19" Width="140" MaxLength="18" Height="33" 
 					HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5"
-                    KeyUp="passwordBox_KeyUp" IsEnabled="{c:Binding Path=!IsBlocked, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+                    KeyUp="passwordBox_KeyUp" >
                     <PasswordBox.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -200,7 +200,7 @@
 						IsActive="{c:Binding Mode=OneWay, Path=IsIndeterminate, UpdateSourceTrigger=PropertyChanged}" IsVisibleChanged="progressRing_IsVisibleChanged"  
 						Visibility="{c:Binding IsIndeterminate, FalseToVisibility=Hidden, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
-                <Border x:Name="errorBorder" BorderBrush="Black" Visibility="Visible" Opacity="0" Margin="10" MouseLeftButtonUp="errorBorder_MouseLeftButtonUp" Tag="{Binding Mode=OneWayToSource, Path=ErrorReset, UpdateSourceTrigger=PropertyChanged}">
+                <Border x:Name="errorBorder" BorderBrush="Black" Visibility="Visible" Opacity="0" Margin="10" MouseLeftButtonUp="errorBorder_MouseLeftButtonUp">
                     <TextBlock x:Name="errorTbl" Text="{Binding Mode=OneWay, Path=ErrorMessage, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource toUpper}}" 
 						HorizontalAlignment="Center" VerticalAlignment="Center"
 						FontSize="14" TextWrapping="Wrap" Foreground="Black" FontFamily="Segoe UI"/>

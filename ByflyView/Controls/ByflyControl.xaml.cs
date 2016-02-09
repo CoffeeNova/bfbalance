@@ -147,7 +147,8 @@ namespace CoffeeJelly.Byfly.ByflyView.Controls
 
         private void errorBorder_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            errorBorder.Tag = true;
+            //if(ControlState != State.BlockError)
+            //    errorBorder.Tag = true;
         }
 
         private void passwordBox_KeyUp(object sender, KeyEventArgs e)
@@ -198,7 +199,7 @@ namespace CoffeeJelly.Byfly.ByflyView.Controls
                     else
                         ControlState = State.Error;
                 }
-                else if (ControlState == State.Error)
+                else if (ControlState == State.Error || ControlState == State.BlockError)
                     ControlState = State.Login;
             });
 

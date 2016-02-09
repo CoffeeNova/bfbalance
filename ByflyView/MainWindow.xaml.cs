@@ -235,6 +235,15 @@ namespace CoffeeJelly.Byfly.ByflyView
 
         }
 
+        private void mainListBox_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if(sender == null)
+                return;
+            var bf = (sender as ListView).SelectedItem as ByflyClient;
+            if (bf != null && !bf.IsBlocked)
+                bf.ResetError();
+        }
+
     }
 
 

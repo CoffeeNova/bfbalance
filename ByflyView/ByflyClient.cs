@@ -402,7 +402,7 @@ namespace CoffeeJelly.Byfly.ByflyView
                 code = AuthFault.WrongLogin;
             else if (htmlContent.Contains("<script>$.jGrowl(\'<hr>Ошибка символов\'"))
                 code = AuthFault.WrongSymbols;
-            else if (htmlContent.Contains(""))
+            else if (htmlContent.Contains(@"<title>Состояние счета :: Личный кабинет</title>"))
                 code = AuthFault.Success;
             return code;
         }
