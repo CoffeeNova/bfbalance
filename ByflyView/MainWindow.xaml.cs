@@ -69,8 +69,8 @@ namespace CoffeeJelly.Byfly.ByflyView
 
             InitializeComponent();
 
-           // whenYouWantToAddAccount += NewBfClient;
-           // whenYouWantToDeleteAccount += DelBfClient;
+            whenYouWantToAddAccount += NewBfClient;
+            whenYouWantToDeleteAccount += DelBfClient;
             //поправка инициализации
             //mainListBox.Height = window.Height;
             this.AllowsTransparency = true; // fixes MahApps.Metro window bug with no working transparency
@@ -85,13 +85,6 @@ namespace CoffeeJelly.Byfly.ByflyView
             UpdateAllProfiles();
             //Thread.Sleep(5000);
 
-            int i = 10;
-            while(i>0)
-            {
-                ByFlyCollection.Add(new ByflyClient("", ""));
-            }
-
-            ByFlyCollection.Clear();
         }
 
         //
@@ -125,12 +118,14 @@ namespace CoffeeJelly.Byfly.ByflyView
 
         public static void AddAccount()
         {
-            whenYouWantToAddAccount();
+            if (whenYouWantToAddAccount != null)
+                whenYouWantToAddAccount();
         }
 
         public static void DeleteAccount()
         {
-            whenYouWantToDeleteAccount();
+            if (whenYouWantToDeleteAccount != null)
+                whenYouWantToDeleteAccount();
         }
         private void NewBfClient()
         {
@@ -138,8 +133,7 @@ namespace CoffeeJelly.Byfly.ByflyView
         }
         private void DelBfClient()
         {
-            Console.WriteLine(mainListBox.SelectedIndex);
-            if(mainListBox.Items.Count >0)
+            if (mainListBox.Items.Count > 0)
             {
                 var item = (ByflyClient)mainListBox.SelectedItem;
                 if (item != null)
@@ -209,7 +203,7 @@ namespace CoffeeJelly.Byfly.ByflyView
         {
             try
             {
-              return RegistryWorker.CreateSubKey(Microsoft.Win32.RegistryHive.LocalMachine, Consts._SETTINGS_LOCATION + "\\" + Consts._PROFILES_LOCATION);
+                return RegistryWorker.CreateSubKey(Microsoft.Win32.RegistryHive.LocalMachine, Consts._SETTINGS_LOCATION + "\\" + Consts._PROFILES_LOCATION);
             }
             catch (Exception ex)
             {
@@ -223,9 +217,9 @@ namespace CoffeeJelly.Byfly.ByflyView
             try
             {
 
-               return RegistryWorker.WriteKeyValue(Microsoft.Win32.RegistryHive.LocalMachine, Consts._SETTINGS_LOCATION + "\\" + Consts._PROFILES_LOCATION, Microsoft.Win32.RegistryValueKind.MultiString, Consts._PROFILESLIST, new string[]{});
+                return RegistryWorker.WriteKeyValue(Microsoft.Win32.RegistryHive.LocalMachine, Consts._SETTINGS_LOCATION + "\\" + Consts._PROFILES_LOCATION, Microsoft.Win32.RegistryValueKind.MultiString, Consts._PROFILESLIST, new string[] { });
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _log.Error(ex.Message);
                 return false;
@@ -272,11 +266,13 @@ namespace CoffeeJelly.Byfly.ByflyView
 
         private void mainListBox_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            if(sender == null)
+            if (sender == null)
                 return;
             var bf = (sender as ListView).SelectedItem as ByflyClient;
             if (bf != null && !bf.IsBlocked)
                 bf.ResetError();
+
+            Console.WriteLine((sender as ListView).SelectedIndex);
         }
 
         private void mainListBox_MouseRightButtonUp(object sender, MouseButtonEventArgs e)

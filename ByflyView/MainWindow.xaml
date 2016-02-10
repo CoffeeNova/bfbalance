@@ -6,12 +6,13 @@
         xmlns:bfControls="clr-namespace:CoffeeJelly.Byfly.ByflyView.Controls"
         Name="window" ShowTitleBar="False" ShowIconOnTitleBar="False"
         Title="Byfly view" HorizontalAlignment="Stretch" SizeToContent="WidthAndHeight" ResizeMode="NoResize" 
-                      WindowStyle="None"  Background="Transparent" AllowsTransparency="True">
+                      WindowStyle="None"  Background="Transparent" AllowsTransparency="True" >
     <Window.Resources>
         <conv:SicButtonsMarginConverter x:Key="sicConverter"/>
     </Window.Resources>
     <!--xmlns:ff="clr-namespace:FunctionalFun.UI"-->
     <Grid HorizontalAlignment="Stretch"  Margin="0,20,0,0">
+        
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -19,7 +20,12 @@
         <ListView x:Name="mainListBox" Grid.Row="2" HorizontalAlignment="Stretch"  
                   VerticalAlignment="Top" MouseLeftButtonUp="mainListBox_MouseLeftButtonUp"
                   MouseRightButtonUp="mainListBox_MouseRightButtonUp"
-                  BorderBrush="Transparent" ContextMenu="{StaticResource MainListBoxMenu}" ContextMenuService.IsEnabled="True" ContextMenuService.HasDropShadow="True">
+            ContextMenu="{StaticResource MainListBoxMenu}" ContextMenuService.IsEnabled="True" ContextMenuService.HasDropShadow="True">
+            <!--BorderBrush="Transparent"-->
+
+            <ListView.Effect>
+                <DropShadowEffect BlurRadius="15" Direction="45" RenderingBias="Quality" ShadowDepth="2"/>
+            </ListView.Effect>
             <ListView.Resources>
                 <Style TargetType="Border">
                 </Style>

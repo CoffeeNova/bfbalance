@@ -195,24 +195,23 @@ namespace CoffeeJelly.Byfly.ByflyView.Controls
                     if (!string.IsNullOrEmpty((string)(a as Label).Content))
                         ControlState = State.Logged;
                 }
-                catch(Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-                
-                
+                catch { }
             });
             dpdErrorTextBlock.AddValueChanged(errorTbl, (object a, EventArgs b) =>
             {
-                //if (!string.IsNullOrEmpty((a as TextBlock).Text))
-                //{
-                //    if (_boundedClient.IsBlocked)
-                //        ControlState = State.BlockError;
-                //    else
-                //        ControlState = State.Error;
-                //}
-                //else if (ControlState == State.Error || ControlState == State.BlockError)
-                //    ControlState = State.Login;
+                try
+                {
+                    if (!string.IsNullOrEmpty((a as TextBlock).Text))
+                    {
+                        if (_boundedClient.IsBlocked)
+                            ControlState = State.BlockError;
+                        else
+                            ControlState = State.Error;
+                    }
+                    else if (ControlState == State.Error || ControlState == State.BlockError)
+                        ControlState = State.Login;
+                }
+                catch { }
             });
 
             ControlState = State.Login;
