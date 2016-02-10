@@ -197,8 +197,8 @@
 					VerticalContentAlignment="Top" Margin="-1,76,1,8" FontSize="18" Visibility="Visible" RenderTransformOrigin="0.5,0.5"/>-->
                 <StackPanel  Width="98" Margin="24,43,22,5" VerticalAlignment="Center" HorizontalAlignment="Center" Height="61">
                     <Controls:ProgressRing x:Name="progressRing"   Height="16" Margin="0,0,0,16" IsEnabled="True" FontSize="18"
-						IsActive="{c:Binding Mode=OneWay, Path=IsIndeterminate, UpdateSourceTrigger=PropertyChanged}" IsVisibleChanged="progressRing_IsVisibleChanged"  
-						Visibility="{c:Binding IsIndeterminate, FalseToVisibility=Hidden, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+						IsActive="{c:Binding Mode=OneWay, Path=IsGettingData, UpdateSourceTrigger=PropertyChanged}" IsVisibleChanged="progressRing_IsVisibleChanged"  
+						Visibility="{c:Binding IsGettingData, FalseToVisibility=Hidden, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
                 <Border x:Name="errorBorder" BorderBrush="Black" Visibility="Visible" Opacity="0" Margin="10" MouseLeftButtonUp="errorBorder_MouseLeftButtonUp">
                     <TextBlock x:Name="errorTbl" Text="{Binding Mode=OneWay, Path=ErrorMessage, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource toUpper}}" 

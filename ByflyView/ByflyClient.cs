@@ -135,20 +135,15 @@ namespace CoffeeJelly.Byfly.ByflyView
             }
         }
 
-        public bool IsIndeterminate
+        /// <summary>
+        /// Возвращает <see langword="true"/>, во время получения данных с сервера Белтелеком
+        /// </summary>
+        public bool IsGettingData
         {
-            get { return _isIndeterminate; }
-            set { _isIndeterminate = value; NotifyPropertyChanged(); }
+            get { return _isGettingData; }
+            private set { _isGettingData = value; NotifyPropertyChanged(); }
         }
 
-        public object ErrorReset
-        {
-            set
-            {
-                if (value != null && value.GetType() == typeof(bool) && (bool)value)
-                    ResetError();
-            }
-        }
         /// <summary>
         /// Возвращает значение, указывающее является ли клиент в блокировке из-за частых обращений к серверу
         /// </summary>
@@ -159,6 +154,10 @@ namespace CoffeeJelly.Byfly.ByflyView
         /// </summary>
         public bool IsCaptchaRequired { get; private set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool IsSelected { get; set; }
         /// <summary>
         /// Куки 
         /// </summary>
@@ -176,7 +175,7 @@ namespace CoffeeJelly.Byfly.ByflyView
 
         #region fields (private)
 
-        private bool _isIndeterminate = false;
+        private bool _isGettingData = false;
         private string _abonent = "";
         private string _status = "";
         private string _tariffPlan = "";
@@ -234,13 +233,13 @@ namespace CoffeeJelly.Byfly.ByflyView
         {
             try
             {
-                IsIndeterminate = true;
+                IsGettingData = true;
                 Thread.Sleep(3000);
                 return AccountData();
             }
             finally
             {
-                IsIndeterminate = false;
+                IsGettingData = false;
             }
         }
 

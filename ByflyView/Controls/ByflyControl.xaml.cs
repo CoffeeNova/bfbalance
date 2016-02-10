@@ -58,7 +58,7 @@ namespace CoffeeJelly.Byfly.ByflyView.Controls
             {
                 if (_boundedClient == null)
                     return "";
-                if (_boundedClient.IsIndeterminate)
+                if (_boundedClient.IsGettingData)
                     return "Ожидайте, идет связь с сервером Белтелекома.";
                 if (ControlState == State.Logged)
                     return _boundedClient.Abonent + ".\r\nТарифный план: " + _boundedClient.TariffPlan +".\r\nТекущий статус: " + _boundedClient.Status + ".";

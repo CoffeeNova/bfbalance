@@ -24,7 +24,7 @@
                 </Style>
             </ListView.Resources>
             <ListView.ItemContainerStyle>
-                <Style TargetType="ListBoxItem">
+                <Style TargetType="ListViewItem">
                     <Setter Property="IsSelected" Value="{Binding Content.IsSelected, Mode=TwoWay, RelativeSource={RelativeSource Self}}"/>
                     <Setter Property="Template">
                         <Setter.Value>

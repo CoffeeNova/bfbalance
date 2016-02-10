@@ -54,7 +54,7 @@
     </Reference>
     <Reference Include="Microsoft.Expression.Interactions" />
     <Reference Include="NLog">
-      <HintPath>E:\MailRu Cloud\Visual Studio Projects\Packages\NLog.3.2.1\lib\net45\NLog.dll</HintPath>
+      <HintPath>..\..\Packages\NLog.3.2.1\lib\net45\NLog.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -86,7 +86,7 @@
       <HintPath>..\packages\Infragistics.Themes.MetroDark.Wpf.1.0.0\lib\net40\WPFToolkit.dll</HintPath>
     </Reference>
     <Reference Include="xNet">
-      <HintPath>E:\MailRu Cloud\Visual Studio Projects\Packages\xNet-master\bin\Release\xNet.dll</HintPath>
+      <HintPath>..\..\Packages\xNet-master\bin\Release\xNet.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
