@@ -38,8 +38,10 @@ namespace CoffeeJelly.Byfly.ByflyView
     public partial class MainWindow : MetroWindow
     {
 
-        public ObservableCollection<ByflyClient> ByFlyCollection { get; set; }
-
+        private ObservableCollection<ByflyClient> ByFlyCollection { get; set; }
+        private delegate void badDel();
+        private static event badDel whenYouWantToAddAccount;
+        private static event badDel whenYouWantToDeleteAccount;
 
         private readonly Logger _log = LogManager.GetCurrentClassLogger();
 
@@ -66,6 +68,9 @@ namespace CoffeeJelly.Byfly.ByflyView
             // string pass = ByflyTools.EncryptText("2547", key, iv);
 
             InitializeComponent();
+
+           // whenYouWantToAddAccount += NewBfClient;
+           // whenYouWantToDeleteAccount += DelBfClient;
             //поправка инициализации
             //mainListBox.Height = window.Height;
             this.AllowsTransparency = true; // fixes MahApps.Metro window bug with no working transparency
@@ -79,7 +84,14 @@ namespace CoffeeJelly.Byfly.ByflyView
 
             UpdateAllProfiles();
             //Thread.Sleep(5000);
-            
+
+            int i = 10;
+            while(i>0)
+            {
+                ByFlyCollection.Add(new ByflyClient("", ""));
+            }
+
+            ByFlyCollection.Clear();
         }
 
         //
@@ -111,6 +123,29 @@ namespace CoffeeJelly.Byfly.ByflyView
             return collection;
         }
 
+        public static void AddAccount()
+        {
+            whenYouWantToAddAccount();
+        }
+
+        public static void DeleteAccount()
+        {
+            whenYouWantToDeleteAccount();
+        }
+        private void NewBfClient()
+        {
+            ByFlyCollection.Add(new ByflyClient("", ""));
+        }
+        private void DelBfClient()
+        {
+            Console.WriteLine(mainListBox.SelectedIndex);
+            if(mainListBox.Items.Count >0)
+            {
+                var item = (ByflyClient)mainListBox.SelectedItem;
+                if (item != null)
+                    ByFlyCollection.Remove(item);
+            }
+        }
         private void ParserCallback(ByflyClient client)
         {
             client.GetAccountData();
@@ -242,6 +277,11 @@ namespace CoffeeJelly.Byfly.ByflyView
             var bf = (sender as ListView).SelectedItem as ByflyClient;
             if (bf != null && !bf.IsBlocked)
                 bf.ResetError();
+        }
+
+        private void mainListBox_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
         }
 
     }

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:conv="clr-namespace:CoffeeJelly.Byfly.BFlib.Converters;assembly=BFlib"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
-        xmlns:byfly="clr-namespace:CoffeeJelly.Byfly.ByflyView.Controls"
+        xmlns:bfControls="clr-namespace:CoffeeJelly.Byfly.ByflyView.Controls"
         Name="window" ShowTitleBar="False" ShowIconOnTitleBar="False"
         Title="Byfly view" HorizontalAlignment="Stretch" SizeToContent="WidthAndHeight" ResizeMode="NoResize" 
                       WindowStyle="None"  Background="Transparent" AllowsTransparency="True">
@@ -18,11 +18,15 @@
         </Grid.RowDefinitions>
         <ListView x:Name="mainListBox" Grid.Row="2" HorizontalAlignment="Stretch"  
                   VerticalAlignment="Top" MouseLeftButtonUp="mainListBox_MouseLeftButtonUp"
-                  BorderBrush="Transparent">
+                  MouseRightButtonUp="mainListBox_MouseRightButtonUp"
+                  BorderBrush="Transparent" ContextMenu="{StaticResource MainListBoxMenu}" ContextMenuService.IsEnabled="True" ContextMenuService.HasDropShadow="True">
             <ListView.Resources>
                 <Style TargetType="Border">
                 </Style>
             </ListView.Resources>
+            <ListView.DataContext>
+                <bfControls:bfMenuCommands/>
+            </ListView.DataContext>
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="IsSelected" Value="{Binding Content.IsSelected, Mode=TwoWay, RelativeSource={RelativeSource Self}}"/>
@@ -46,9 +50,10 @@
             </ListView.ItemsPanel>
             <ListView.ItemTemplate>
                 <DataTemplate x:Name="data">
-                    <byfly:ByflyControl />
+                    <bfControls:ByflyControl />
                 </DataTemplate>
             </ListView.ItemTemplate>
+
         </ListView>
         <Grid Grid.Row="1" Margin="{Binding ElementName=mainListBox, Path=ActualWidth, Converter={StaticResource sicConverter}}" Background="Transparent">
             <Button x:Name="addProfile" ToolTip="Добавить аккаунт" HorizontalAlignment="Left"  Margin="4,0,0,0"
@@ -64,7 +69,6 @@
                 VerticalAlignment="Top" Width="20" Style="{DynamicResource MetroCircleButtonStyle}" Height="20" Grid.Column="1">
             </Button>
         </Grid>
-
     </Grid>
 </Controls:MetroWindow>
 

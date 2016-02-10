@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ContextMenu x:Shared="false" x:Key="MainListBoxMenu">
+        <!--<MenuItem Header="Настройки" Command="{Binding ShowWindowSettings}" />
+        <Separator />
+        <MenuItem Header="Показания за день" Command="{Binding ShowWindowHome}" />
+        <Separator />
+        <MenuItem Header="Показания за месяц" Command="{Binding ShowWindowTwo}" />-->
+        <MenuItem Header="Добавить аккаунт" Command="{Binding AddAccountCommand}" />
+        <MenuItem Header="Удалить аккаунт" Command="{Binding DeleteAccountCommand}" />
+        <Separator />
+        <MenuItem Header="{Binding WindowsStateHeader}" Command="{Binding DefineWindowCommand}" />
+        <MenuItem Header="Exit" Command="{Binding ExitApplicationCommand}" />
+    </ContextMenu>
+</ResourceDictionary>

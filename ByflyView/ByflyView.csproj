@@ -49,6 +49,9 @@
     <Reference Include="DynamicExpresso.Core">
       <HintPath>..\packages\DynamicExpresso.Core.1.3.1.0\lib\net40\DynamicExpresso.Core.dll</HintPath>
     </Reference>
+    <Reference Include="Hardcodet.Wpf.TaskbarNotification">
+      <HintPath>..\..\Packages\TaskbarNotification\Hardcodet.Wpf.TaskbarNotification.dll</HintPath>
+    </Reference>
     <Reference Include="MahApps.Metro">
       <HintPath>..\packages\MahApps.Metro.1.2.4.0\lib\net45\MahApps.Metro.dll</HintPath>
     </Reference>
@@ -94,8 +97,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\bfMenuCommands.cs" />
     <Compile Include="ByflyClient.cs" />
     <Compile Include="ByflyTools.cs" />
+    <Page Include="Controls\bfDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\ByflyControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

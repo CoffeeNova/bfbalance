@@ -646,6 +646,7 @@ namespace CoffeeJelly.Byfly.ByflyView
         protected virtual void Dispose(bool disposing)
         {
             AuthBlockTimer.Dispose();
+            
         }
 
         #endregion
@@ -665,6 +666,10 @@ namespace CoffeeJelly.Byfly.ByflyView
             WrongLogin = 3, //неправильный логин или пароль
             WrongSymbols = 4, //ошибка символов (капча)
             UnknownError = 0 //неизвестная ошибка
+        }
+        ~ByflyClient()
+        {
+            Console.WriteLine("клиент уничт");
         }
     }
 

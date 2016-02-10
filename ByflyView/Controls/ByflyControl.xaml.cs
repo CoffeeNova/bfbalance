@@ -116,7 +116,10 @@ namespace CoffeeJelly.Byfly.ByflyView.Controls
         {
             InitializeComponent();
         }
-
+        ~ByflyControl()
+        {
+            Console.WriteLine("контрол уничт");
+        }
         public void RaiseStateEvent(RoutedEvent rEvent)
         {
             var newEventArgs = new RoutedEventArgs(rEvent);
@@ -187,20 +190,29 @@ namespace CoffeeJelly.Byfly.ByflyView.Controls
 
             dpdBalanceLabel.AddValueChanged(balanceLabel, (object a, EventArgs b) =>
             {
-                if (!string.IsNullOrEmpty((string)(a as Label).Content))
-                    ControlState = State.Logged;
+                try
+                {
+                    if (!string.IsNullOrEmpty((string)(a as Label).Content))
+                        ControlState = State.Logged;
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+                
+                
             });
             dpdErrorTextBlock.AddValueChanged(errorTbl, (object a, EventArgs b) =>
             {
-                if (!string.IsNullOrEmpty((a as TextBlock).Text))
-                {
-                    if (_boundedClient.IsBlocked)
-                        ControlState = State.BlockError;
-                    else
-                        ControlState = State.Error;
-                }
-                else if (ControlState == State.Error || ControlState == State.BlockError)
-                    ControlState = State.Login;
+                //if (!string.IsNullOrEmpty((a as TextBlock).Text))
+                //{
+                //    if (_boundedClient.IsBlocked)
+                //        ControlState = State.BlockError;
+                //    else
+                //        ControlState = State.Error;
+                //}
+                //else if (ControlState == State.Error || ControlState == State.BlockError)
+                //    ControlState = State.Login;
             });
 
             ControlState = State.Login;
@@ -210,7 +222,6 @@ namespace CoffeeJelly.Byfly.ByflyView.Controls
         {
             bfc.ToolTip = ToolTipContent;
         }
-
 
     }
 
