@@ -272,12 +272,18 @@ namespace CoffeeJelly.Byfly.ByflyView
             if (bf != null && !bf.IsBlocked)
                 bf.ResetError();
 
-            Console.WriteLine((sender as ListView).SelectedIndex);
+            //Console.WriteLine((sender as ListView).SelectedIndex);
+            //Console.WriteLine("IsSelected: " + ((sender as ListView).SelectedItem as ByflyClient).IsSelected);
         }
 
         private void mainListBox_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
 
+        }
+
+        private void mainListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
 
     }

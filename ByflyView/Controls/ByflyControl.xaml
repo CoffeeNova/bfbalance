@@ -13,7 +13,7 @@
              xmlns:bfview="clr-namespace:CoffeeJelly.Byfly.ByflyView"
              x:Class="CoffeeJelly.Byfly.ByflyView.Controls.ByflyControl" 
              mc:Ignorable="d" x:Name="bfc"
-             d:DesignHeight="109" d:DesignWidth="144" Loaded="bfc_Loaded" ToolTipOpening="bfc_ToolTipOpening" ToolTipService.ToolTip="" ToolTipService.IsEnabled="True">
+             d:DesignHeight="109" d:DesignWidth="144" Loaded="bfc_Loaded" ToolTipOpening="bfc_ToolTipOpening" ToolTipService.ToolTip="" ToolTipService.IsEnabled="True" >
     <UserControl.Resources>
         <ObjectDataProvider x:Key="ByflyClientProvider" ObjectType="{x:Type bfview:ByflyClient}" MethodName="GetAccountData"/>
         <conv:StringToUpperConverter x:Key="toUpper"/>

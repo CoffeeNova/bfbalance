@@ -19,10 +19,9 @@
         </Grid.RowDefinitions>
         <ListView x:Name="mainListBox" Grid.Row="2" HorizontalAlignment="Stretch"  
                   VerticalAlignment="Top" MouseLeftButtonUp="mainListBox_MouseLeftButtonUp"
-                  MouseRightButtonUp="mainListBox_MouseRightButtonUp"
+                  MouseRightButtonUp="mainListBox_MouseRightButtonUp" SelectionChanged="mainListBox_SelectionChanged"
             ContextMenu="{StaticResource MainListBoxMenu}" ContextMenuService.IsEnabled="True" ContextMenuService.HasDropShadow="True">
             <!--BorderBrush="Transparent"-->
-
             <ListView.Effect>
                 <DropShadowEffect BlurRadius="15" Direction="45" RenderingBias="Quality" ShadowDepth="2"/>
             </ListView.Effect>
@@ -34,19 +33,22 @@
                 <bfControls:bfMenuCommands/>
             </ListView.DataContext>
             <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="IsSelected" Value="{Binding Content.IsSelected, Mode=TwoWay, RelativeSource={RelativeSource Self}}"/>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}"/>
                     <Setter Property="Template">
                         <Setter.Value>
-                            <ControlTemplate TargetType="ListViewItem">
-                                <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                                    <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsEnabled" Value="false">
+                                        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
-                    <Style.Resources>
-                        <Style TargetType="Border">
-                        </Style>
-                    </Style.Resources>
                 </Style>
             </ListView.ItemContainerStyle>
             <ListView.ItemsPanel>

@@ -244,7 +244,7 @@ namespace CoffeeJelly.Byfly.ByflyView
         }
 
         /// <summary>
-        /// Сброс сообщения ошибки (очищает свойство <see cref="ErrorMEssage"/>)
+        /// Сброс сообщения ошибки (очищает свойство <see cref="ErrorMessage"/>)
         /// </summary>
         public void ResetError()
         {

@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Threading;
+using CoffeeJelly.Byfly.BFlib;
 
 namespace CoffeeJelly.Byfly.ByflyView.Controls
 {
@@ -167,10 +168,8 @@ namespace CoffeeJelly.Byfly.ByflyView.Controls
 
         private ByflyClient GetBoundedByflyClient()
         {
-            var bfControlsDaddy = VisualTreeHelper.GetParent(this);
-            var bfControlsGrandDaddy = VisualTreeHelper.GetParent(bfControlsDaddy) as ListViewItem;
-            var bfClient = bfControlsGrandDaddy.Content as ByflyClient;
-            return bfClient;
+            var item = WpfUiAssistant.FindAncestorOrSelf<ListViewItem>(this);
+            return item.Content as ByflyClient;
         }
 
         private void loginTb_KeyUp(object sender, KeyEventArgs e)

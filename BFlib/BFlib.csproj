@@ -56,6 +56,7 @@
     <Compile Include="ByflyControlAssistant.cs" />
     <Compile Include="Converters\Converters.cs" />
     <Compile Include="Crypto.cs" />
+    <Compile Include="WpfUiAssistant.cs" />
     <Compile Include="PasswordBehavior.cs" />
     <Compile Include="PasswordBoxAssistant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
